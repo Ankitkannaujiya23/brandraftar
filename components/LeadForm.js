@@ -67,7 +67,7 @@ export default function LeadForm({ service = "" }) {
 
     try {
       const r = await fetch(
-        "http://localhost:5000/api/brandraftar/createEnquiry",     //"https://api.yamanappliances.com/api/brandraftar/createEnquiry",
+        "https://api.yamanappliances.com/api/brandraftar/createEnquiry",
         {
           method: "POST",
           headers: {
