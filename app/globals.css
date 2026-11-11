@@ -1,0 +1,33 @@
+@tailwind base;@tailwind components;@tailwind utilities;
+html{scroll-behavior:smooth}
+body{@apply bg-paper text-ink antialiased}
+@layer components{
+ .wrap{@apply mx-auto max-w-6xl px-5}
+ .btn{@apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-medium transition duration-300}
+ .btn-p{@apply bg-ink text-paper hover:bg-brand hover:-translate-y-0.5}
+ .btn-g{@apply border border-line bg-white hover:border-ink}
+ .eyebrow{@apply mb-5 inline-flex items-center gap-2 text-xs font-medium uppercase tracking-[.2em] text-mute}
+ .eyebrow::before{content:"";@apply h-1.5 w-1.5 rounded-full bg-brand}
+ .h2{@apply text-4xl font-medium leading-[1.05] tracking-tight md:text-6xl}
+ .card{@apply rounded-2xl border border-line bg-white p-7 transition duration-500 hover:-translate-y-1 hover:border-ink}
+ .inp{@apply w-full rounded-xl border border-line bg-white px-4 py-3 text-base outline-none transition focus:border-brand}
+}
+.rv{opacity:0;transform:translateY(28px);transition:opacity .8s cubic-bezier(.2,.8,.2,1),transform .8s cubic-bezier(.2,.8,.2,1)}
+.rv.in{opacity:1;transform:none}
+.aurora{position:absolute;inset:-20% -10% auto;height:70%;background:radial-gradient(40% 50% at 25% 30%,#ff5a1f33,transparent 70%),radial-gradient(35% 45% at 75% 20%,#ffb34733,transparent 70%);filter:blur(40px);animation:au 14s ease-in-out infinite alternate;pointer-events:none}
+@keyframes au{to{transform:translate3d(4%,6%,0) scale(1.1)}}
+.mq{display:flex;width:max-content;animation:mq 40s linear infinite}
+@keyframes mq{to{transform:translateX(-50%)}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
+.draw{stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset 2.2s cubic-bezier(.2,.8,.2,1) .3s}
+.in .draw{stroke-dashoffset:0}
+.area{opacity:0;transition:opacity 1.5s ease 1.4s}.in .area{opacity:1}
+.grow{transform:scaleX(0);transform-origin:left;transition:transform 1.3s cubic-bezier(.2,.8,.2,1) calc(var(--d,0)*1ms)}
+.in .grow{transform:none}
+.fillw{width:0;transition:width 1.4s cubic-bezier(.2,.8,.2,1) calc(var(--d,0)*1ms)}
+.in .fillw{width:var(--w)}
+.ring{stroke-dasharray:0 100;transition:stroke-dasharray 2s cubic-bezier(.2,.8,.2,1) .3s}
+.in .ring{stroke-dasharray:var(--v) 100}
+.pulse{animation:pl 2s ease-in-out infinite}
+@keyframes pl{50%{transform:scale(1.6);opacity:.4}}
+@media(prefers-reduced-motion:reduce){.draw{stroke-dashoffset:0}.area{opacity:1}.grow{transform:none}.fillw{width:var(--w)}.ring{stroke-dasharray:var(--v) 100}}
